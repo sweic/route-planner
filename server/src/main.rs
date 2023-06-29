@@ -51,12 +51,16 @@ async fn main() -> std::io::Result<()>  {
         reqwest_client: reqwest_client.clone(),
         redis_client: redis
     });
+
+    let client_url = dotenv::var("CLIENT_URL").unwrap();
     
     env_logger::init();
     std::env::set_var("RUST_LOG", "actix_web=trace");
     HttpServer::new(move || {
         let logger = Logger::default();
-        let cors = Cors::permissive();
+        let cors = Cors::default()
+                    .allowed_origin(&client_url)
+                    .allowed_methods(vec!["GET", "POST"]);
         App::new()
         .app_data(app_state.clone())
         .wrap(cors)
