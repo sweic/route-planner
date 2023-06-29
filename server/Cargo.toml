@@ -1,0 +1,33 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+actix-web = "4"
+log = "0.4.19"
+serde_json = "1.0"
+serde = { version = "^1", features = ["derive"] }
+derive_more = "^0.99"
+reqwest = { version = "0.11.18", features = ["json", "blocking"] }
+tokio = { version = "1", features = ["full"] }
+polyline = "0.10.1"
+actix-cors = "0.6.4"
+flate2 = "1.0"
+base64 = "0.21.2"
+env_logger = "0.9"
+redis = "0.17.0"
+fred = "6.2.0"
+dotenv = "0.15.0"
+
+[experimental]
+cmd = "./backend" # should be the name of the binary you want to run
+
+[dependencies.uuid]
+version = "1.3.4"
+features = [
+    "v4",                # Lets you generate random UUIDs
+    "fast-rng",          # Use a faster (but still sufficiently random) RNG
+    "macro-diagnostics", # Enable better diagnostics for compile-time UUIDs
+]

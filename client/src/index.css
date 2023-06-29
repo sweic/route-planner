@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+#main-map {
+  height: 100vh;
+  width: 100%;
+  position: absolute !important;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  position: relative;
+}
+
+.leaflet-control-zoom {
+  position: absolute !important;
+  left: 4px;
+  bottom: 42px;
+}
+
+@media (max-width: 640px) {
+  .leaflet-control-zoom {
+    display: none;
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 12rem; /* Set the initial width of the input */
+  }
+  to {
+    width: 100%; /* Set the final expanded width */
+  }
+}
+
+.animate-width {
+  animation-name: expandWidth;
+  animation-duration: 0.5s; /* Set the duration of the animation */
+  animation-timing-function: ease-out; /* Set the easing function */
+}
+
+.sidebar {
+  position: absolute;
+  width: 0;
+  transition: width 0.3s;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  width: 300px !important;
+}
