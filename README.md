@@ -27,7 +27,7 @@
 <li>Install Redis on your local machine.</li>
 <li>Start machine's redis server</li>
 <li>Create a new folder and <code>git clone https://github.com/sweic/route-planner.git</code></li>
-<li>Fill up the <code>.env.example</code> file inside <code>/client and server subfolders</code> and rename to <code>.env</code></li>
+<li>Fill up the <code>.env.example</code> file inside client and server subfolder and rename to <code>.env</code></li>
 <li><code>npm install</code> in the client subfolder</li>
 <li>To start client, run <code>npm run dev</code> in client subfolder
 <li>App should be running on <code>http://localhost:3000/</code></li>
