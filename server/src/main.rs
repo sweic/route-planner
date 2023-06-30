@@ -53,14 +53,16 @@ async fn main() -> std::io::Result<()>  {
     });
 
     let client_url = dotenv::var("CLIENT_URL").unwrap();
-    
+    println!("{}", client_url);
     env_logger::init();
     std::env::set_var("RUST_LOG", "actix_web=trace");
     HttpServer::new(move || {
         let logger = Logger::default();
         let cors = Cors::default()
                     .allowed_origin(&client_url)
-                    .allowed_methods(vec!["GET", "POST"]);
+                    .allow_any_header()
+                    .allow_any_method()
+                    .expose_any_header();
         App::new()
         .app_data(app_state.clone())
         .wrap(cors)
