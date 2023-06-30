@@ -53,7 +53,7 @@ async fn main() -> std::io::Result<()>  {
     });
 
     let client_url = dotenv::var("CLIENT_URL").unwrap();
-    println!("{}", client_url);
+    
     env_logger::init();
     std::env::set_var("RUST_LOG", "actix_web=trace");
     HttpServer::new(move || {
